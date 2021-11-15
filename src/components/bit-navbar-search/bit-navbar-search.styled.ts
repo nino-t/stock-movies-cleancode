@@ -1,6 +1,8 @@
 import tw, { styled } from 'twin.macro';
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  ${tw`relative`};
+`;
 
 export const Field = styled.div`
   border: 2px solid #D1D5DB;
@@ -50,3 +52,5 @@ export const Submit = styled.button.attrs({
     background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzIDEzTDkgOU0xMC4zMzMzIDUuNjY2NjdDMTAuMzMzMyA4LjI0NCA4LjI0NCAxMC4zMzMzIDUuNjY2NjcgMTAuMzMzM0MzLjA4OTM0IDEwLjMzMzMgMSA4LjI0NCAxIDUuNjY2NjdDMSAzLjA4OTM0IDMuMDg5MzQgMSA1LjY2NjY3IDFDOC4yNDQgMSAxMC4zMzMzIDMuMDg5MzQgMTAuMzMzMyA1LjY2NjY3WiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);  
   }
 `;
+
+export const AutoCompleteWrapper = styled.div``;
