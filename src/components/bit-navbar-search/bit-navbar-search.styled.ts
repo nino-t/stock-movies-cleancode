@@ -1,6 +1,8 @@
 import tw, { styled } from 'twin.macro';
 
-export const Form = styled.form`
+export const Form = styled.form.attrs({
+  role: 'form'
+})`
   ${tw`relative`};
 `;
 
@@ -11,7 +13,8 @@ export const Field = styled.div`
 `;
 
 export const Input = styled.input.attrs({
-  type: 'text'
+  type: 'text',
+  role: 'searchbox'
 })`
   ${tw`py-2 px-4`};
   width: calc(100% - 40px);
@@ -35,7 +38,8 @@ export const Input = styled.input.attrs({
 `;
 
 export const Submit = styled.button.attrs({
-  type: 'submit'
+  type: 'submit',
+  role: 'button'
 })`
   width: 40px;
   content: '';

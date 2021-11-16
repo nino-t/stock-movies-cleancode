@@ -41,7 +41,7 @@ const Loading: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     <React.Fragment>
       {
         isLoading &&
-          <s.Loader>
+          <s.Loader data-testid="bit-infinite-scroll-loader">
             <Spinner name="line-scale" fadeIn="none" />
           </s.Loader>
       }
