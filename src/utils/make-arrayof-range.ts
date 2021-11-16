@@ -1,3 +1,10 @@
+/**
+ * Create array of number based on range starting and ending points
+ * @param start Start point
+ * @param end End point
+ * @param step Jump numbers (By default it will be set to 1)
+ * @returns Results array of number
+ */
 const makeArrayOfRange = (start: number, end: number, step: number = 1): number[] => {
   let output = [];
 

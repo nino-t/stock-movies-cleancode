@@ -11,10 +11,15 @@ export const BitNavbarSearch = React.forwardRef<Ref, i.BitNavbarSearchProps>((pr
   const debouncedKeyword = useDebounce(keyword, 500);
 
   React.useEffect(() => {
-    if (autoCompleteHandler) {
+    let cancel = false;
+    if (!cancel && autoCompleteHandler && debouncedKeyword.length !== 0) {
       autoCompleteHandler(debouncedKeyword);
     }
-  }, [debouncedKeyword, autoCompleteHandler]);
+
+    return () => {
+      cancel = true;
+    }
+  }, [autoCompleteHandler, debouncedKeyword]);
 
   const submitForm = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();

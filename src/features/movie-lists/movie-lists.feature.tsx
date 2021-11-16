@@ -1,4 +1,6 @@
 import React from 'react';
+import memoize from 'fast-memoize';
+import { Movie } from '../../app/movies/movies.interface';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchMoviesAction } from '../../app/movies/movies.action';
 import BitMovieCard from '../../components/bit-movie-card/bit-movie-card.component';
@@ -17,10 +19,12 @@ const MovieLists: React.FC = () => {
     }));
   }, [dispatch, page]);
 
-  const loadMoreMovies = (nextpage: number): void => {
-    setPage(nextpage);
-  }
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const onClickMoviePoster = React.useCallback(
+    memoize((movie: Movie) => () => console.log('OK', movie)),
+    []
+  );
+  
   const results = {
     status: useAppSelector(selectMoviesStatus),
     response: {
@@ -37,7 +41,7 @@ const MovieLists: React.FC = () => {
       total={results.response.total}
       totalInResponse={results.response.totalResponse}
       page={results.response.page}
-      loadMoreHandler={(nextpage) => loadMoreMovies(nextpage)}
+      loadMoreHandler={(nextpage) => setPage(nextpage)}
     >
       <div className="grid grid-cols-5 gap-x-12 gap-y-6">
         {
@@ -49,7 +53,7 @@ const MovieLists: React.FC = () => {
               title={movie.Title}
               year={movie.Year}
               type={movie.Type}
-              handlePosterClick={() => console.log('OK')}
+              handlePosterClick={onClickMoviePoster(movie)}
             />
           ))
         }

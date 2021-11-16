@@ -50,4 +50,4 @@ const Loading: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
 }
 const MemoLoading = React.memo(Loading);
 
-export default React.memo(BitInfiniteScrollPagination);
+export default BitInfiniteScrollPagination;

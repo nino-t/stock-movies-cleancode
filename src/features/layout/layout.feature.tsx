@@ -49,16 +49,16 @@ const Layout: React.FC = ({ children }) => {
 
   React.useEffect(() => {
     let cancel = false;
+    if (cancel || searchkeyword.length === 0) {
+      return;
+    }
+
     setSearchIsOpen(true);
     fetchMovies({
       q: searchkeyword,
       page: 1
     })
       .then((response) => {
-        if (cancel) {
-          return;
-        }
-
         const results = response?.movies ?? [];
         setSearchResults(results);
       })

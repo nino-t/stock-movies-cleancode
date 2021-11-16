@@ -23,4 +23,4 @@ const BitMovieCard: React.FC<i.BitMovieCardProps> = ({ id, poster, title, year, 
   );
 }
 
-export default BitMovieCard;
+export default React.memo(BitMovieCard);
