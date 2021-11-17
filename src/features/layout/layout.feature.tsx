@@ -83,7 +83,10 @@ const Layout: React.FC = ({ children }) => {
     return searchResults.map((item) => {
       return {
         title: item.Title,
-        clickHandler: () => history.push(`/watch?v=${item.imdbID}`)
+        clickHandler: () => {
+          setSearchIsOpen(false);
+          history.push(`/watch?v=${item.imdbID}`)
+        }
       }
     })
   }, [history, searchResults]);
