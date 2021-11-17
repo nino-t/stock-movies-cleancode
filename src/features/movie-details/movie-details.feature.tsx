@@ -11,14 +11,16 @@ const MovieDetails: React.FC = () => {
   const dispatch = useAppDispatch();
   const movieId = query.get('v') || '';
 
-  React.useEffect(() => {
-    dispatch(fetchMovieByIdAction(movieId));
-  }, [dispatch, movieId]);
-
   const results = {
     movie: useAppSelector(selectMovieDetailsById(movieId)),
     status: useAppSelector(selectMovieDetailsStatus)
   }
+
+  React.useEffect(() => {
+    if (!results.movie) {
+      dispatch(fetchMovieByIdAction(movieId));
+    }
+  }, [dispatch, movieId, results.movie]);
 
   return (
     <React.Fragment>
