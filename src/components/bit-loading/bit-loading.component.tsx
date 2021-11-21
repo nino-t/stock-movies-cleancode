@@ -6,7 +6,7 @@ const BitLoading: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
     <React.Fragment>
       {
         isLoading &&
-        <div className="flex justify-center items-center py-16">
+        <div className="flex justify-center items-center py-16" data-testid="loading">
           <Spinner name="line-scale" fadeIn="none" />
         </div>
       }

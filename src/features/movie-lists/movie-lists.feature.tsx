@@ -43,7 +43,7 @@ const MovieLists: React.FC = () => {
       page={results.response.page}
       loadMoreHandler={(nextpage) => setPage(nextpage)}
     >
-      <div className="grid grid-cols-5 gap-x-12 gap-y-6">
+      <div className="grid grid-cols-5 gap-x-12 gap-y-6" data-testid="movie-lists">
         {
           results.response.data.map((movie) => (
             <BitMovieCard

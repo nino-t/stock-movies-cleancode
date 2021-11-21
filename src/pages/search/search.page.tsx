@@ -7,7 +7,7 @@ const SearchPage: React.FC = () => {
   return (
     <Layout>
       <BitContainer>
-        <div className="mt-28" />
+        <div className="mt-28" data-testid="search-page-indicator" />
         <MovieSearch />
       </BitContainer>
     </Layout>

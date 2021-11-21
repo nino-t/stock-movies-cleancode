@@ -7,7 +7,7 @@ const BrowsePage: React.FC = () => {
   return (
     <Layout>
       <BitContainer>
-        <div className="mt-28" />
+        <div className="mt-28" data-testid="browse-page-indicator" />
         <MovieLists />
       </BitContainer>
     </Layout>

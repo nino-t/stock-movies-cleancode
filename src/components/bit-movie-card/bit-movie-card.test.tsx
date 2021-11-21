@@ -1,6 +1,6 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BitMovieCard from './bit-movie-card.component';
 
@@ -33,6 +33,12 @@ describe("bit-movie-card component", () => {
     expect(screen.queryByText('Batman the dark knight')).toBeInTheDocument();
     expect(screen.queryByAltText('Batman the dark knight')).toHaveAttribute('src', '/my-poster.png');
     expect(screen.queryByText('Movie, 2008')).toBeInTheDocument();
+  });
+
+  it('fire event-error on image poster for showing default poster it\'s OK', () => {
+    const target = screen.getByAltText('Batman the dark knight');
+    fireEvent.error(target);
+    expect(target).toHaveAttribute('src', 'null-image.png');
   });
 
   it('fire event-clicked poster it\'s OK', () => {

@@ -6,7 +6,7 @@ import nullImage from '../../assets/images/null-image.png';
 
 const BitMovieCard: React.FC<i.BitMovieCardProps> = ({ id, poster, title, year, type, handlePosterClick }) => {
   return (
-    <s.Wrapper>
+    <s.Wrapper data-testid="bit-movie-card">
       <s.Poster
         src={poster}
         alt={title}
